@@ -3,6 +3,7 @@ package hello.servlet.web.servletmvc;
 import hello.servlet.domain.member.Member;
 import hello.servlet.domain.member.MemberRepository;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -22,7 +23,8 @@ public class MvcMemberListServlet extends HttpServlet {
 
         request.setAttribute("members",members);
 
-        String viewPath = "/WEB-INF/views/members.jsp";
-        request.getRequestDispatcher(viewPath )
+        String viewPath = "/WEB-INF/views/members.jsp"; // 항상 이코드가 중복됨.
+        RequestDispatcher dispatcher = request.getRequestDispatcher(viewPath); // 담아서 보내면, 이제 뷰로직이 실행이 됨.  - 항상 이코드가 반복됨
+        dispatcher.forward(request, response);
     }
 }

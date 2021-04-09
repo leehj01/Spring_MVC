@@ -19,3 +19,4 @@ public class MvcMemberFormServlet extends HttpServlet {
         dispatcher.forward(request, response); // 이것을 호출하면, 서블릿에서 jsp를 호출할 수 있다.
     }
 }
+ 
